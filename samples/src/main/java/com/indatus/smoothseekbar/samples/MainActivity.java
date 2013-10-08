@@ -78,7 +78,9 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
 
 	@Override
 	public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
+		if (fromUser) {
+			seekBar.setProgress(progress);
+		}
 	}
 
 	@Override

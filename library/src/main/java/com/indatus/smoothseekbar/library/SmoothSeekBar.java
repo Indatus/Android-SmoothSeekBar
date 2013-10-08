@@ -286,13 +286,14 @@ public class SmoothSeekBar extends SeekBar implements ValueAnimator.AnimatorUpda
 	public void onAnimationUpdate(ValueAnimator valueAnimator) {
 		invalidate();
 		mCurrentPercentage = mRectFill.getRight() / mViewWidth;
-        try {
-            mSeekListener.onProgressChanged(this, (int) (mCurrentPercentage * mSegments), false);
-        } catch (NullPointerException e) {
-            Log.w(TAG, "Set the seek listener"); // TODO: fix this
-            e.printStackTrace();
-        }
-    }
+		try {
+			mSeekListener.onProgressChanged(this, (int) (mCurrentPercentage * mSegments), false);
+		}
+		catch (NullPointerException e) {
+			Log.w(TAG, "Implement the OnSeekBarChangeListener to fix this warning.");
+			e.printStackTrace();
+		}
+	}
 
 	/**
 	 * Read the docs for View.OnLayoutChangeListener for more details. This method is used to measure the height of the view, and the values must therefore be

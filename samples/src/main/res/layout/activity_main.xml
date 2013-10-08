@@ -32,13 +32,15 @@
                 android:id="@+id/btn_play"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"/>
+                android:layout_margin="15dp"
+                android:text="Play"/>
 
         <Button
                 android:id="@+id/btn_stop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"/>
+                android:layout_margin="15dp"
+                android:text="Stop"/>
 
     </LinearLayout>
 
