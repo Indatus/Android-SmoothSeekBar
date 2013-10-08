@@ -4,5 +4,6 @@
     <string name="app_name">SmoothSeekBar</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="info_text">Press play to interact with the SmoothSeekBar below.</string>
 
 </resources>
