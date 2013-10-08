@@ -46,7 +46,7 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
 	private void playAudio() {
 		try {
 			mPlayer.reset();
-			mPlayer.setDataSource("somewhere");
+			mPlayer.setDataSource("http://www.wavsource.com/snds_2013-10-06_1078408184243274/movie_stars/eastwood/punk.wav");
 			mPlayer.prepare();
 			mPlayer.start();
 
@@ -65,6 +65,10 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
 		mSeekBar.endAnimation();
 	}
 
+	private int getSeekToProgress() {
+		return (int) ((double) mSeekBar.getProgress() * (1 / (double) mSeekBar.getMax()) * (double) mPlayer.getDuration());
+	}
+
 	//     ___       _             __                  ___                 _                           _        _   _
 	//    |_ _|_ __ | |_ ___ _ __ / _| __ _  ___ ___  |_ _|_ __ ___  _ __ | | ___ _ __ ___   ___ _ __ | |_ __ _| |_(_) ___  _ __  ___
 	//     | || '_ \| __/ _ \ '__| |_ / _` |/ __/ _ \  | || '_ ` _ \| '_ \| |/ _ \ '_ ` _ \ / _ \ '_ \| __/ _` | __| |/ _ \| '_ \/ __|
@@ -79,11 +83,14 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
 
 	@Override
 	public void onStartTrackingTouch(SeekBar seekBar) {
+		mPlayer.pause();
 		mSeekBar.pauseAnimating();
 	}
 
 	@Override
 	public void onStopTrackingTouch(SeekBar seekBar) {
+		mPlayer.seekTo(getSeekToProgress());
+		mPlayer.start();
 		mSeekBar.beginAnimating();
 	}
 
@@ -92,11 +99,15 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
 		switch (v.getId()) {
 			case R.id.btn_play:
 				// do stuff
-				playAudio();
+				if (!mPlayer.isPlaying()) {
+					playAudio();
+				}
 				break;
 			case R.id.btn_stop:
 				// do more stuff
-                stopAudio();
+				if (mPlayer.isPlaying()) {
+					stopAudio();
+				}
 				break;
 		}
 	}
