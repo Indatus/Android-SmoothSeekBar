@@ -60,8 +60,8 @@ public class SmoothSeekBar extends SeekBar implements ValueAnimator.AnimatorUpda
 		TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SmoothSeekBar);
 
 		try {
-			fill = a.getInt(R.styleable.SmoothSeekBar_progressFillColor, 0);
-			bg = a.getInt(R.styleable.SmoothSeekBar_progressBackgroundColor, 0);
+			fill = a.getInt(R.styleable.SmoothSeekBar_progressFillColor, Color.CYAN);
+			bg = a.getInt(R.styleable.SmoothSeekBar_progressBackgroundColor, Color.DKGRAY);
 			//            mHeight = a.getDimension(); // TODO: set this up to work from XML
 		}
 		catch (NullPointerException e) {
