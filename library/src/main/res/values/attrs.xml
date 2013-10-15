@@ -5,6 +5,9 @@
         <attr name="progressHeight" format="dimension|reference|integer"/>
         <attr name="progressFillColor" format="color"/>
         <attr name="progressBackgroundColor" format="reference|color"/>
+        <attr name="thumbDrawable" format="reference|color"/>
+        <attr name="thumbWidth" format="reference|dimension"/>
+        <attr name="thumbHeight" format="reference|dimension"/>
     </declare-styleable>
 
 </resources>

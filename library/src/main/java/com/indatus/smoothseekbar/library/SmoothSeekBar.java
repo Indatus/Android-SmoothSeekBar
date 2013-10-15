@@ -9,6 +9,8 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -33,6 +35,10 @@ public class SmoothSeekBar extends SeekBar implements ValueAnimator.AnimatorUpda
 	private int mViewWidth, mHeight;
 
 	private OnSeekBarChangeListener mSeekListener;
+
+	// thumb attributes
+	private Drawable mThumb;
+	private int mThumbWidth, mThumbHeight;
 
 	//      ____                _                   _
 	//     / ___|___  _ __  ___| |_ _ __ _   _  ___| |_ ___  _ __ ___
@@ -60,8 +66,13 @@ public class SmoothSeekBar extends SeekBar implements ValueAnimator.AnimatorUpda
 		TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SmoothSeekBar);
 
 		try {
-			fill = a.getInt(R.styleable.SmoothSeekBar_progressFillColor, Color.CYAN);
-			bg = a.getInt(R.styleable.SmoothSeekBar_progressBackgroundColor, Color.DKGRAY);
+			fill = a.getColor(R.styleable.SmoothSeekBar_progressFillColor, Color.CYAN);
+			bg = a.getColor(R.styleable.SmoothSeekBar_progressBackgroundColor, Color.DKGRAY);
+            mThumb = a.getDrawable(R.styleable.SmoothSeekBar_thumbDrawable);
+
+            if (mThumb == null) {
+                mThumb = new ColorDrawable(a.getColor(R.styleable.SmoothSeekBar_thumbDrawable, 0));
+            }
 			//            mHeight = a.getDimension(); // TODO: set this up to work from XML
 		}
 		catch (NullPointerException e) {
