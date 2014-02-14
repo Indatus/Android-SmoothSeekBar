@@ -1,4 +1,39 @@
-.gradle
-/local.properties
-/.idea/workspace.xml
+#Android generated
+bin
+gen
+lint.xml
+
+#Eclipse
+.project
+.classpath
+.settings
+.checkstyle
+
+#IntelliJ IDEA
+.idea
+*.iml
+*.ipr
+*.iws
+classes
+gen-external-apklibs
+out
+
+#Maven
+target
+release.properties
+pom.xml.*
+
+#Ant
+ant.properties
+local.properties
+proguard.cfg
+proguard-project.txt
+
+#Other
 .DS_Store
+tmp
+
+# Gradle
+.gradle
+/build
+/out
