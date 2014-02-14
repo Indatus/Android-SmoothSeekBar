@@ -5,6 +5,7 @@ An abstraction of Android's SeekBar that animates smoothly.
 
 Compatible with Android 4.0+
 
+The latest SNAPSHOT can be found [here](https://oss.sonatype.org/content/repositories/snapshots/com/indatus/jonstaff/androidsmoothseekbar/library/1.0.0-SNAPSHOT/) - I'm working on getting it properly uploaded to MavenCentral.
 
 ## Importing Using Android Studio and Gradle
 
